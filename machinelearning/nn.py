@@ -195,9 +195,7 @@ class Graph(object):
             gradients = node.backward(inputs, self.get_gradient(node))
             for i, p in enumerate(node.get_parents()):
                 x = self.gradients[self.nodes.index(p)]
-                print(x.shape)
                 self.gradients[self.nodes.index(p)] = self.gradients[self.nodes.index(p)] + gradients[i]
-                print(x.shape)
                 if p not in fringe:
                     fringe.append(p)
 
